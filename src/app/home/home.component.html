@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row py-5">
+        <div class="col-md-4 d-flex align-items-center">
+            <div>
+                <div class="brdr w-25 mb-3"></div>
+                <h2 class="h4">Trending <br/> Movies <br/> Right Now</h2>
+                <p class="text-muted">Most Watched Movies by Week</p>
+                <div class="brdr w-100 mt-3"></div>
+            </div>
+        </div>
+        <div *ngFor="let items of trendingMovies?.slice(0,10)" class="col-6 col-md-4 col-lg-2">
+            <div class="my-2 position-relative pointer" [routerLink]="['/details',items?.id , items?.media_type]">
+                <img class="w-100" [lazyLoad]="'https://image.tmdb.org/t/p/w500/'+items?.poster_path" alt="">
+                <h3 class="h5 py-2">{{items?.title}}</h3>
+                <div class="vote top-0 end-0 position-absolute">{{items?.vote_average.toFixed(1)}}</div>
+            </div>
+        </div>
+    
+    </div>
+
+
+    <div class="row py-5">
+        <div class="col-md-4 d-flex align-items-center">
+            <div>
+                <div class="brdr w-25 mb-3"></div>
+                <h2 class="h4">Trending <br/> Tv <br/> Right Now</h2>
+                <p class="text-muted">Most Watched Tv by Week</p>
+                <div class="brdr w-100 mt-3"></div>
+            </div>
+        </div>
+        <div *ngFor="let items of trendingTv?.slice(0,10)" class="col-6 col-md-4 col-lg-2">
+            <div class="my-2 position-relative pointer" [routerLink]="['/details',items?.id , items?.media_type]">
+                <img class="w-100" [lazyLoad]="'https://image.tmdb.org/t/p/w500/'+items?.poster_path" alt="">
+                <h3 class="h5 py-2">{{items?.name}}</h3>
+                <div class="vote top-0 end-0 position-absolute">{{items?.vote_average.toFixed(1)}}</div>
+            </div>
+        </div>
+    
+    </div>
+
+
+    <div class="row py-5">
+        <div class="col-md-4 d-flex align-items-center">
+            <div>
+                <div class="brdr w-25 mb-3"></div>
+                <h2 class="h4">Trending <br/> People <br/> Right Now</h2>
+                <p class="text-muted">Most Watched People by Week</p>
+                <div class="brdr w-100 mt-3"></div>
+            </div>
+        </div>
+        <div *ngFor="let items of trendingPeople?.slice(0,10)" class="col-6 col-md-4 col-lg-2">
+            <div class="my-2 position-relative pointer" [routerLink]="['/details',items?.id , items?.media_type]">
+                <img class="w-100" [lazyLoad]="'https://image.tmdb.org/t/p/w500'+items?.profile_path" alt="">
+                <h3 class="h5 py-2">{{items?.name}}</h3>
+            </div>
+        </div>
+    
+    </div>
+
+
+
+</div>

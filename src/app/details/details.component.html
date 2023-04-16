@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <img *ngIf="detailsData?.profile_path" class="w-100" [src]="'https://image.tmdb.org/t/p/w500'+detailsData?.profile_path" alt="">
+            <img *ngIf="detailsData?.poster_path" class="w-100" [src]="'https://image.tmdb.org/t/p/w500'+detailsData?.poster_path" alt="">
+        </div>
+        <div class="col-md-6 d-flex align-items-center">
+            <div>
+                <h2 class="my-2">{{detailsData?.title}} {{detailsData?.name}}</h2>
+                <p class="text-muted py-2">{{detailsData?.overview}} {{detailsData?.biography}}</p>
+                <div *ngIf="detailsData?.vote_average">Vote Average : {{detailsData?.vote_average}}</div>
+                <div *ngIf="detailsData?.vote_count">Vote count : {{detailsData?.vote_count}}</div>
+                <div *ngIf="detailsData?.budget">Vote budget : {{detailsData?.budget}}</div>
+                <div *ngIf="detailsData?.birthday">birthday : {{detailsData?.birthday}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <h2 *ngIf="similarData?.length >0">Similar Data</h2>
+        <div *ngFor="let items of similarData" class="col-6 col-md-4 col-lg-2">
+            <div class="my-2 position-relative pointer" (click)="antherDetails(items?.id,media_type)">
+                <img class="w-100" [src]="'https://image.tmdb.org/t/p/w500/'+items?.poster_path" alt="">
+                <h3 class="h5 py-2">{{items?.title}}</h3>
+                <div class="vote top-0 end-0 position-absolute">{{items?.vote_average.toFixed(1)}}</div>
+            </div>
+        </div>
+    </div>
+</div>

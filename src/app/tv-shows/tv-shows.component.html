@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row py-5">
+        <div *ngFor="let items of DataTv" class="col-6 col-md-4 col-lg-3">
+            <div class="my-2 position-relative pointer" [routerLink]="['/details',items?.id , 'tv']">
+                <img class="w-100" [lazyLoad]="'https://image.tmdb.org/t/p/w500/'+items?.poster_path" alt="">
+                <h3 class="h5 py-2">{{items?.name}}</h3>
+                <div class="vote top-0 end-0 position-absolute">{{items?.vote_average.toFixed(1)}}</div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+<nav aria-label="Page navigation example" class="d-flex justify-content-center">
+    <ul class="pagination">
+      <li class="page-item" *ngFor="let num of [1,2,3,4,5,6,7,8,9,10]"><a [ngClass]="{'page':currentPage ==num}"  class="page-link" (click)="tv(num)">{{num}}</a></li>
+    </ul>
+</nav>
